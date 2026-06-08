@@ -2,7 +2,6 @@ async function init() {
     await fetchAllPokemon();
     await fetchThisPokemonData();
     renderPokemonCards();
-
 }
 
 const allData = [];
@@ -23,6 +22,17 @@ async function fetchThisPokemonData() {
     }
 }
 
+function renderPokemonCards() {
+    const pokemonRef = document.getElementById('pokedex_content');
+    pokemonRef.innerHTML = '';
+    for (let i = 0; i < allPokemon.length; i++) {
+        pokemonRef.innerHTML +=
+        getPokemonCardsTemplate(i);
+        renderPokemonImg(i);
+        renderPokemonType(i);
+    }
+}
+
 function renderPokemonImg(i) {
     const imgRef = document.getElementById(`poke_img_${i}`);
     imgRef.src = `${allPokemon[i].sprites.front_default}`;
@@ -36,20 +46,13 @@ function renderPokemonType(i) {
     }
 }
 
-function renderPokemonCards() {
-    const pokemonRef = document.getElementById('pokedex_content');
-    pokemonRef.innerHTML = '';
-    for (let i = 0; i < allPokemon.length; i++) {
-        pokemonRef.innerHTML += `            
-        <div class="pkm_content_card">
-            <p class="pkm_name">${allData[0].results[i].name}</p>
-            <p class="pkm_number" id="pkm_number_${i}"># ${allPokemon[i].id}</p>
-            <img class="pkm_img" id="poke_img_${i}">
-            <div class="pkm_type" id="pkm_type_${i}">
-            </div>
-        </div>`
-        renderPokemonImg(i);
-        renderPokemonType(i);
-    }
+function getPokemonCardsTemplate(i) {
+    return `            
+            <div class="pkm_content_card">
+                <p class="pkm_name">${allData[0].results[i].name}</p>
+                <p class="pkm_number"># ${allPokemon[i].id}</p>
+                <img class="pkm_img" id="poke_img_${i}">
+                <div class="pkm_type" id="pkm_type_${i}">
+                </div>
+            </div>`
 }
-
