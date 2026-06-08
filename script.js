@@ -25,8 +25,8 @@ async function fetchThisPokemonData() {
 }
 
 function renderPokemonImg(data) {
-    const imgRef = document.getElementById('poke_img');
-    imgRef.innerHTML += `<img src="${data.sprites.front_default}">`;
+    const imgRef = document.getElementById(`poke_img_${i}`);
+    imgRef.setAttribute.src = `"${data.sprites.front_default}"`;
 }
 
 

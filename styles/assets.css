@@ -1,0 +1,25 @@
+.pkm_content_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 240px;
+    background-color: darkcyan;
+    padding: 24px;
+}
+
+.pkm_type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pkm_number {
+    align-self: flex-end;
+}
+
+.pkm_img {
+    height: 120px;
+    width: auto;
+    
+}
