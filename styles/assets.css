@@ -8,14 +8,13 @@
     padding: 56px;
 }
 
-
 .pkm_content_card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 250px;
-    background-color: rgba(219, 219, 219);
+    background-color: rgb(219, 219, 219);
     padding: 24px;
     font-family: 'Tiny5';
     font-size: 1.5rem;

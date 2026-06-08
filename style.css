@@ -3,3 +3,40 @@
     box-sizing: border-box;
     font-family: 'Tiny5';
 }
+
+/* body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+nav {
+    width: 100%;
+    padding: 24px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    background-color: rgb(219, 219, 219);
+    background-image: url('assets/img/transparent_pokeball.png');
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+nav>img {
+    height: 80px;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+footer {
+    background-color: rgb(219, 219, 219);
+    padding: 24px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
