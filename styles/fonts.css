@@ -1,0 +1,7 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Tiny5';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/tiny5-v3-latin-regular.woff2') format('woff2');
+}

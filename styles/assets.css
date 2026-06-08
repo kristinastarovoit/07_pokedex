@@ -6,6 +6,8 @@
     width: 240px;
     background-color: darkcyan;
     padding: 24px;
+    font-family: 'Tiny5';
+    font-size: 1.5rem;
 }
 
 .pkm_type {
@@ -22,4 +24,8 @@
     height: 120px;
     width: auto;
     
+}
+
+.pkm_name {
+    font-size: 1.75rem;
 }
