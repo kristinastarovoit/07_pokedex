@@ -1,19 +1,36 @@
+.pokedex_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    background-color: brown;
+    padding: 56px;
+}
+
+
 .pkm_content_card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 240px;
-    background-color: darkcyan;
+    width: 250px;
+    background-color: rgba(219, 219, 219);
     padding: 24px;
     font-family: 'Tiny5';
     font-size: 1.5rem;
+    border-radius: 36px;
+    background-image: url('../assets/img/pkm_background.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .pkm_type {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 25px;
 }
 
 .pkm_number {
@@ -21,11 +38,14 @@
 }
 
 .pkm_img {
-    height: 120px;
+    height: 150px;
     width: auto;
-    
+
 }
 
 .pkm_name {
-    font-size: 1.75rem;
+    font-size: 2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: rgb(39, 39, 39);
 }
