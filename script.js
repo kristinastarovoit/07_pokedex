@@ -1,6 +1,8 @@
-function init() {
-    fetchAllPokemon();
-    fetchThisPokemonData();
+async function init() {
+    await fetchAllPokemon();
+    await fetchThisPokemonData();
+    renderPokemonCards();
+
 }
 
 const allData = [];
@@ -11,7 +13,6 @@ async function fetchAllPokemon() {
     const data = await response.json()
     allData.push(data);
     console.log(allData[0].results[0].name);
-    console.log(data);
 }
 
 async function fetchThisPokemonData() {
@@ -19,15 +20,36 @@ async function fetchThisPokemonData() {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
         const data = await response.json();
         allPokemon.push(data);
-        renderPokemonImg((allPokemon[i - 1]));
-        console.log(data);
     }
 }
 
-function renderPokemonImg(data) {
+function renderPokemonImg(i) {
     const imgRef = document.getElementById(`poke_img_${i}`);
-    imgRef.setAttribute.src = `"${data.sprites.front_default}"`;
+    imgRef.src = `${allPokemon[i].sprites.front_default}`;
 }
 
+function renderPokemonType(i) {
+    const typeRef = document.getElementById(`pkm_type_${i}`);
+    typeRef.innerHTML = '';
+    for (let indexType = 0; indexType < allPokemon[i].types.length; indexType++) {
+        typeRef.innerHTML += `<p>${allPokemon[i].types[indexType].type.name}`
+    }
+}
 
+function renderPokemonCards() {
+    const pokemonRef = document.getElementById('pokedex_content');
+    pokemonRef.innerHTML = '';
+    for (let i = 0; i < allPokemon.length; i++) {
+        pokemonRef.innerHTML += `            
+        <div class="pkm_content_card">
+            <p class="pkm_name">${allData[0].results[i].name}</p>
+            <p class="pkm_number" id="pkm_number_${i}"># ${allPokemon[i].id}</p>
+            <img class="pkm_img" id="poke_img_${i}">
+            <div class="pkm_type" id="pkm_type_${i}">
+            </div>
+        </div>`
+        renderPokemonImg(i);
+        renderPokemonType(i);
+    }
+}
 
