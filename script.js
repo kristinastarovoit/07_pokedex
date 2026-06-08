@@ -19,7 +19,7 @@ async function fetchThisPokemonData() {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
         const data = await response.json();
         allPokemon.push(data);
-        renderPokemonImg(data);
+        renderPokemonImg((allPokemon[i - 1]));
         console.log(data);
     }
 }
