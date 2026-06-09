@@ -48,3 +48,7 @@
     text-transform: uppercase;
     color: rgb(39, 39, 39);
 }
+
+.about_section, .stats_section {
+    display: flex;
+}
