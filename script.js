@@ -50,13 +50,20 @@ function getPokemonCardsTemplate(i) {
 }
 
 function renderDialog(i) {
-    console.log('more info');
-    const dialogButtonsRef = document.getElementById('card_extra_info');
-    dialogButtonsRef.innerHTML = '';
-    dialogButtonsRef.innerHTML += `
-                    <button onclick="renderAboutSection(${i})">about</button>
-                    <button onclick="renderStatsSection(${i})">stats</button>`
+    renderDialogButtons(i);
     renderAboutSection(i);
+}
+
+function renderDialogButtons(i) {
+    const dialogButtonsRef = document.getElementById('dialog_info_button');
+    dialogButtonsRef.innerHTML = '';
+    dialogButtonsRef.innerHTML += getDialogButtonsTemplate(i);
+}
+
+function getDialogButtonsTemplate(i) {
+    return `
+            <button onclick="renderAboutSection(${i})">about</button>
+            <button onclick="renderStatsSection(${i})">stats</button>`
 }
 
 function renderPokemonStats(i) {
@@ -97,9 +104,9 @@ function renderAboutSection(i) {
                     </div>
                 </div>`
     renderAbilitySection(i);
-    console.log('onclick klappt');
-
 }
+
+
 
 function renderStatsSection(i) {
     const aboutSectionRef = document.getElementById('info_section');
