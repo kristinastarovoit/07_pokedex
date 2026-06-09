@@ -1,18 +1,15 @@
-async function init() {
-    await fetchAllPokemon();
-    await fetchThisPokemonData();
-    renderPokemonCards();
+function init() {
+    fetchThisPokemonData();
 }
 
-const allData = [];
 const allPokemon = [];
 
-async function fetchAllPokemon() {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0');
-    const data = await response.json()
-    allData.push(data);
-    console.log(allData[0].results[0].name);
-}
+// async function fetchAllPokemon() {
+//     const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0');
+//     const data = await response.json()
+//     allData.push(data);
+//     console.log(allData[0].results[0].name);
+// }
 
 async function fetchThisPokemonData() {
     for (let i = 1; i <= 40; i++) {
@@ -20,6 +17,7 @@ async function fetchThisPokemonData() {
         const data = await response.json();
         allPokemon.push(data);
     }
+    renderPokemonCards();
 }
 
 function renderPokemonCards() {
@@ -49,7 +47,7 @@ function renderPokemonType(i) {
 function getPokemonCardsTemplate(i) {
     return `            
             <div class="pkm_content_card">
-                <p class="pkm_name">${allData[0].results[i].name}</p>
+                <p class="pkm_name">${allPokemon[i].name}</p>
                 <p class="pkm_number"># ${allPokemon[i].id}</p>
                 <img class="pkm_img" id="poke_img_${i}">
                 <div class="pkm_type" id="pkm_type_${i}">
