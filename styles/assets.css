@@ -52,3 +52,7 @@
 .about_section, .stats_section {
     display: flex;
 }
+
+dialog {
+    background-color: rgb(219, 219, 219);
+}

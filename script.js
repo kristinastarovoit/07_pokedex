@@ -25,7 +25,7 @@ function renderPokemonCards() {
     pokemonRef.innerHTML = '';
     for (let i = 0; i < allPokemon.length; i++) {
         pokemonRef.innerHTML +=
-            getPokemonCardsTemplate(i);
+        getPokemonCardsTemplate(i);
         renderPokemonType(i);
     }
 }
@@ -45,14 +45,27 @@ function getPokemonCardsTemplate(i) {
                 <p class="pkm_number"># ${allPokemon[i].id}</p>
                 <img class="pkm_img" src="${allPokemon[i].sprites.front_default}">
                 <div class="pkm_type" id="pkm_type_${i}"></div>
-                <button onclick="renderDialog(${i})">more info</button>
+                <button id="more_info_button_${i}" onclick="renderDialog(${i})">more info</button>
             </div>`
 }
 
 function renderDialog(i) {
     openDialog();
+    renderPokemonCardInDialog(i);
+    removeInfoButtonInDialog(i);
     renderDialogButtons(i);
     renderAboutSection(i);
+}
+
+function renderPokemonCardInDialog(i) {
+    const dialogCardRef = document.getElementById('standard_card');
+    dialogCardRef.innerHTML = '';
+    dialogCardRef.innerHTML += getPokemonCardsTemplate(i);
+}
+
+function removeInfoButtonInDialog(i) {
+    const infoButton = document.getElementById(`more_info_button_${i}`);
+    infoButton.classList.add('d_none');
 }
 
 function openDialog() {
