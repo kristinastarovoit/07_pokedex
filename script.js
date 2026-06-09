@@ -51,11 +51,12 @@ function getPokemonCardsTemplate(i) {
 
 function renderDialog(i) {
     console.log('more info');
-    // const dialogRef = document.getElementById('dialog_popup');
-    // dialogRef.innerHTML = '';
-    // dialogRef.innerHTML += 
-    renderAbilitySection(i);
-    renderStatsSection(i);
+    const dialogButtonsRef = document.getElementById('card_extra_info');
+    dialogButtonsRef.innerHTML = '';
+    dialogButtonsRef.innerHTML += `
+                    <button onclick="renderAboutSection(${i})">about</button>
+                    <button onclick="renderStatsSection(${i})">stats</button>`
+    renderAboutSection(i);
 }
 
 function renderPokemonStats(i) {
@@ -77,26 +78,39 @@ function renderAbilitySection(i) {
     }
 }
 
+function renderAboutSection(i) {
+    const aboutSectionRef = document.getElementById('info_section');
+    aboutSectionRef.innerHTML = '';
+    aboutSectionRef.innerHTML += `                
+                <div class="about_section">
+                    <div id="about_key_section">
+                        <p class="about_key">weight</p>
+                        <p class="about_key">height</p>
+                        <p class="about_key">base xp</p>
+                        <p class="about_key">abilities</p>
+                    </div>
+                    <div id="about_value_section">
+                        <p class="about_value">${allPokemon[i].weight} hg</p>
+                        <p class="about_value">${allPokemon[i].height} dm</p>
+                        <p class="about_value">${allPokemon[i].base_experience}</p>
+                        <div class="about_value" id="abilities"></div>
+                    </div>
+                </div>`
+    renderAbilitySection(i);
+    console.log('onclick klappt');
 
-                // <div class="about_section">
-                //     <div id="about_key_section">
-                //         <p class="about_key">weight</p>
-                //         <p class="about_key">height</p>
-                //         <p class="about_key">base xp</p>
-                //         <p class="about_key">abilities</p>
-                //     </div>
-                //     <div id="about_value_section">
-                //         <p class="about_value">${allPokemon[i].weight} hg</p>
-                //         <p class="about_value">${allPokemon[i].height} dm</p>
-                //         <p class="about_value">${allPokemon[i].base_experience}</p>
-                //         <div class="about_value" id="abilities"></div>
-                //     </div>
-                // </div>
+}
+
+function renderStatsSection(i) {
+    const aboutSectionRef = document.getElementById('info_section');
+    aboutSectionRef.innerHTML = '';
+    aboutSectionRef.innerHTML += `   
+                    <div class="stats_section">
+                        <div id="stats_key_section"></div>
+                        <div id="stats_value_section"></div>
+                    </div>`
+    renderPokemonStats(i);
+}
 
 
-                // <div class="stats_section">
-                //     <div id="stats_key_section">
-                //     </div>
-                //     <div id="stats_value_section">
-                //     </div>
-                // </div>
+
