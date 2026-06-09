@@ -26,14 +26,8 @@ function renderPokemonCards() {
     for (let i = 0; i < allPokemon.length; i++) {
         pokemonRef.innerHTML +=
         getPokemonCardsTemplate(i);
-        renderPokemonImg(i);
         renderPokemonType(i);
     }
-}
-
-function renderPokemonImg(i) {
-    const imgRef = document.getElementById(`poke_img_${i}`);
-    imgRef.src = `${allPokemon[i].sprites.front_default}`;
 }
 
 function renderPokemonType(i) {
@@ -49,7 +43,7 @@ function getPokemonCardsTemplate(i) {
             <div class="pkm_content_card">
                 <p class="pkm_name">${allPokemon[i].name}</p>
                 <p class="pkm_number"># ${allPokemon[i].id}</p>
-                <img class="pkm_img" id="poke_img_${i}">
+                <img class="pkm_img" src="${allPokemon[i].sprites.front_default}">
                 <div class="pkm_type" id="pkm_type_${i}">
                 </div>
             </div>`
