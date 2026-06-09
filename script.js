@@ -1,5 +1,5 @@
 function init() {
-    fetchThisPokemonData();
+    fetchThisPokemonData(1, 40, 0);
 }
 
 const allPokemon = [];
@@ -11,21 +11,19 @@ const allPokemon = [];
 //     console.log(allData[0].results[0].name);
 // }
 
-async function fetchThisPokemonData() {
-    for (let i = 1; i <= 40; i++) {
+async function fetchThisPokemonData(startvaluePkmId, endvaluePkmId, startvaluePkmIndex) {
+    for (let i = startvaluePkmId; i <= endvaluePkmId; i++) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
         const data = await response.json();
         allPokemon.push(data);
     }
-    renderPokemonCards();
+    renderPokemonCards(startvaluePkmIndex);
 }
 
-function renderPokemonCards() {
+function renderPokemonCards(startvaluePkmIndex) {
     const pokemonRef = document.getElementById('pokedex_content');
-    pokemonRef.innerHTML = '';
-    for (let i = 0; i < allPokemon.length; i++) {
-        pokemonRef.innerHTML +=
-        getPokemonCardsTemplate(i);
+    for (let i = startvaluePkmIndex; i < allPokemon.length; i++) {
+        pokemonRef.innerHTML += getPokemonCardsTemplate(i);
         renderPokemonType(i);
     }
 }
@@ -142,12 +140,18 @@ function getAboutSectionTemplate(i) {
 }
 
 function getStatsSectionTemplate() {
-    return`   
+    return `   
             <div class="stats_section">
                 <div id="stats_key_section"></div>
                 <div id="stats_value_section"></div>
-            </div>` 
+            </div>`
 }
 
+async function fetchMorePokemon() {
+    fetchThisPokemonData(41, 80, 40);
+}
 
-
+function removeShowMoreButton() {
+    showMoreButton = document.getElementById('show_more_button');
+    showMoreButton.classList.add('d_none');
+}
