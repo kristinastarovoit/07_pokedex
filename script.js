@@ -50,8 +50,19 @@ function getPokemonCardsTemplate(i) {
 }
 
 function renderDialog(i) {
+    openDialog();
     renderDialogButtons(i);
     renderAboutSection(i);
+}
+
+function openDialog() {
+    const dialogRef = document.getElementById('dialog_popup');
+    dialogRef.showModal();
+}
+
+function closeDialog() {
+    const dialogRef = document.getElementById('dialog_popup');
+    dialogRef.close();
 }
 
 function renderDialogButtons(i) {
@@ -116,7 +127,6 @@ function getAboutSectionTemplate(i) {
                 </div>
             </div>`
 }
-
 
 function getStatsSectionTemplate() {
     return`   
