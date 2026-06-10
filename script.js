@@ -53,6 +53,7 @@ function renderDialog(i) {
     removeInfoButtonInDialog(i);
     renderDialogButtons(i);
     renderAboutSection(i);
+    renderDialogArrows(i);
 }
 
 function renderPokemonCardInDialog(i) {
@@ -149,9 +150,26 @@ function getStatsSectionTemplate() {
 
 async function fetchMorePokemon() {
     fetchThisPokemonData(41, 80, 40);
+    removeShowMoreButton();
 }
 
 function removeShowMoreButton() {
     showMoreButton = document.getElementById('show_more_button');
     showMoreButton.classList.add('d_none');
+}
+
+function renderDialogArrows(i) {
+    const arrowRef = document.getElementById('dialog_arrows');
+    arrowRef.innerHTML = '';
+    arrowRef.innerHTML = /*html*/ `                    
+            <button class="dialog_arrow"><img class="dialog_arrow_left" src="assets/img/arrow.svg" alt="Pfeil links"></button>
+            <button onclick="showNextPokemon(${i})" class="dialog_arrow"><img class="dialog_arrow_right" src="assets/img/arrow.svg" alt="Pfeil rechts"></button>`
+}
+
+function showNextPokemon(i) {
+    let nextPokemonIndex = i + 1;
+    if (nextPokemonIndex >= allPokemon.length) {
+        nextPokemonIndex = 0;
+    }
+    renderDialog(nextPokemonIndex);
 }
