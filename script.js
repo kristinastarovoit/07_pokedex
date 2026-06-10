@@ -71,12 +71,14 @@ function openDialog() {
     const dialogRef = document.getElementById('dialog_popup');
     dialogRef.showModal();
     dialogRef.classList.add('opened');
+    document.body.style.overflow = 'hidden';
 }
 
 function closeDialog() {
     const dialogRef = document.getElementById('dialog_popup');
     dialogRef.close();
     dialogRef.classList.remove('opened');
+    document.body.style.overflow = '';
 }
 
 function renderDialogButtons(i) {
