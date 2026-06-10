@@ -24,8 +24,8 @@
         <section>
             Search Section
         </section>
-        <dialog id="dialog_popup">
-            <div class="dialog_wrapper">
+        <dialog onclick="closeDialog()" id="dialog_popup">
+            <div onclick="event.stopPropagation()" class="dialog_wrapper">
                 <button onclick="closeDialog()">close</button>
                 <div id="standard_card"></div>
                 <div id="dialog_info_button"></div>

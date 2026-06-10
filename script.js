@@ -70,11 +70,13 @@ function removeInfoButtonInDialog(i) {
 function openDialog() {
     const dialogRef = document.getElementById('dialog_popup');
     dialogRef.showModal();
+    dialogRef.classList.add('opened');
 }
 
 function closeDialog() {
     const dialogRef = document.getElementById('dialog_popup');
     dialogRef.close();
+    dialogRef.classList.remove('opened');
 }
 
 function renderDialogButtons(i) {
