@@ -162,7 +162,7 @@ function renderDialogArrows(i) {
     const arrowRef = document.getElementById('dialog_arrows');
     arrowRef.innerHTML = '';
     arrowRef.innerHTML = /*html*/ `                    
-            <button class="dialog_arrow"><img class="dialog_arrow_left" src="assets/img/arrow.svg" alt="Pfeil links"></button>
+            <button onclick="showPrevPokemon(${i})" class="dialog_arrow"><img class="dialog_arrow_left" src="assets/img/arrow.svg" alt="Pfeil links"></button>
             <button onclick="showNextPokemon(${i})" class="dialog_arrow"><img class="dialog_arrow_right" src="assets/img/arrow.svg" alt="Pfeil rechts"></button>`
 }
 
@@ -172,4 +172,12 @@ function showNextPokemon(i) {
         nextPokemonIndex = 0;
     }
     renderDialog(nextPokemonIndex);
+}
+
+function showPrevPokemon(i) {
+    let prevPokemonIndex = i - 1;
+    if (prevPokemonIndex < 0) {
+        prevPokemonIndex = allPokemon.length - 1;
+    }
+    renderDialog(prevPokemonIndex);
 }
