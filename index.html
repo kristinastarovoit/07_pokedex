@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="icon" type="image/x-icon" href="assets/img/pokeball.png">
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/assets.css">
     <link rel="stylesheet" href="styles/fonts.css">
@@ -23,7 +22,9 @@
     </header>
     <main>
         <section>
-            Search Section
+            <label for="pokemon_search"></label>
+            <input id="pokemon_search" class="pokemon_search" type="text" minlength="3" placeholder="find your pokemon">
+            <button onclick="searchForPokemon()">Search</button>
         </section>
         <dialog onclick="closeDialog()" id="dialog_popup">
             <div onclick="event.stopPropagation()" class="dialog_wrapper">
@@ -45,6 +46,7 @@
     <footer>
         <a href="">Link zur PokeApi</a>
     </footer>
+    <script src="script.js"></script>
 
 </body>
 

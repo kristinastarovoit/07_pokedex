@@ -3,6 +3,7 @@ function init() {
 }
 
 const allPokemon = [];
+const pokemonRef = document.getElementById('pokedex_content');
 
 // async function fetchAllPokemon() {
 //     const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0');
@@ -30,20 +31,17 @@ async function fetchThisPokemonData(startvaluePkmId, endvaluePkmId, startvaluePk
 
 function showLoadingScreen() {
     const loadingScreen = document.getElementById('loading_screen');
-    const pokemonRef = document.getElementById('pokedex_content');
     loadingScreen.classList.remove('d_none');
     pokemonRef.style.display = 'none';
 }
 
 function removeLoadingScreen() {
     const loadingScreen = document.getElementById('loading_screen');
-    const pokemonRef = document.getElementById('pokedex_content');
     loadingScreen.classList.add('d_none');
     pokemonRef.style.display = 'flex';
 }
 
 function renderPokemonCards(startvaluePkmIndex) {
-    const pokemonRef = document.getElementById('pokedex_content');
     for (let i = startvaluePkmIndex; i < allPokemon.length; i++) {
         pokemonRef.innerHTML += getPokemonCardsTemplate(i);
         renderPokemonType(i);
@@ -207,3 +205,17 @@ function showPrevPokemon(i) {
     }
     renderDialog(prevPokemonIndex);
 }
+
+function searchForPokemon() {
+    let searchInput = document.getElementById('pokemon_search').value;
+    searchInput = searchInput.toLowerCase();
+    console.log(searchInput);
+    const pokemonName = allPokemon.filter(pokemon => pokemon.name.includes(searchInput));
+    console.log(pokemonName);
+    pokemonRef.innerHTML = '';
+    for (let i = 0; i < pokemonName.length; i++) {
+        const searchIndex = allPokemon.indexOf(pokemonName[i]);
+        pokemonRef.innerHTML += getPokemonCardsTemplate(searchIndex);
+    }
+}
+

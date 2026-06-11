@@ -40,6 +40,10 @@ footer {
 
 main {
     background-color: var(--bg-color-pokemon-red);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .loading_screen {
@@ -62,7 +66,18 @@ main {
     }
 }
 
+.pokemon_search {
+    background-image: url("assets/img/search.png");
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 16px 16px;
+    padding: 12px 12px 12px 40px;
+    margin:  50px 0;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: 300px;
+}
+
 .d_none {
     display: none;
 }
-
