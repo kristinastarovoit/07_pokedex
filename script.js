@@ -210,23 +210,32 @@ function searchForPokemon() {
     let searchInput = document.getElementById('pokemon_search').value;
     searchInput = searchInput.toLowerCase();
     const errorRef = document.getElementById('search_error');
-    console.log(searchInput);
     if (searchInput.length < 3) {
-        console.log('mind. 3 Zeichen');
         errorRef.classList.remove('d_none');
     }
     else {
         errorRef.classList.add('d_none');
-        const pokemonName = allPokemon.filter(pokemon => pokemon.name.includes(searchInput));
-        console.log(pokemonName);
-        pokemonRef.innerHTML = '';
-        for (let i = 0; i < pokemonName.length; i++) {
-            const searchIndex = allPokemon.indexOf(pokemonName[i]);
-            pokemonRef.innerHTML += getPokemonCardsTemplate(searchIndex);
-            renderPokemonType(searchIndex);
-        }
-        document.getElementById('pokemon_search').value = '';
+        const pokemonSearchName = allPokemon.filter(pokemon => pokemon.name.includes(searchInput));
+        renderSearchSection(pokemonSearchName);
     }
 }
 
+function clearSearchInput() {
+    document.getElementById('pokemon_search').value = '';
+}
+
+function renderSearchedPokemonCard(pokemonSearchName) {
+    pokemonRef.innerHTML = '';
+    for (let i = 0; i < pokemonSearchName.length; i++) {
+        const searchIndex = allPokemon.indexOf(pokemonSearchName[i]);
+        pokemonRef.innerHTML += getPokemonCardsTemplate(searchIndex);
+        renderPokemonType(searchIndex);
+    }
+}
+
+function renderSearchSection(pokemonSearchName) {
+    renderSearchedPokemonCard(pokemonSearchName);
+    removeShowMoreButton();
+    clearSearchInput();
+}
 
