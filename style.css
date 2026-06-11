@@ -15,7 +15,7 @@ nav {
     align-items: center;
     justify-content: flex-start;
     gap: 24px;
-    background-color: rgb(219, 219, 219);
+    background-color: var(--bg-color-gray);
     background-image: url('assets/img/transparent_pokeball.png');
     background-position: 100% 0%;
     background-repeat: no-repeat;
@@ -31,7 +31,7 @@ h1 {
 }
 
 footer {
-    background-color: rgb(219, 219, 219);
+    background-color: var(--bg-color-gray);
     padding: 24px 100px;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@ footer {
 }
 
 main {
-    background-color: brown;
+    background-color: var(--bg-color-pokemon-red);
 }
 
 .loading_screen {

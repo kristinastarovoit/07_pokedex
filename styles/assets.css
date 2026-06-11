@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     gap: 36px;
-    background-color: brown;
     padding: 56px;
 }
 
@@ -14,7 +13,7 @@
     justify-content: center;
     align-items: center;
     width: 250px;
-    background-color: rgb(219, 219, 219);
+    background-color: var(--bg-color-gray);
     padding: 24px;
     font-family: 'Tiny5';
     font-size: 1.5rem;
@@ -55,6 +54,6 @@
 }
 
 dialog {
-    background-color: rgb(219, 219, 219);
+    background-color: var(--bg-color-gray);
 }
 
