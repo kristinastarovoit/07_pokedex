@@ -25,6 +25,7 @@
             <label for="pokemon_search"></label>
             <input id="pokemon_search" class="pokemon_search" type="text" minlength="3" placeholder="find your pokemon">
             <button onclick="searchForPokemon()">Search</button>
+            <p id="search_error" class="d_none">at least 3 characters</p>
         </section>
         <dialog onclick="closeDialog()" id="dialog_popup">
             <div onclick="event.stopPropagation()" class="dialog_wrapper">
