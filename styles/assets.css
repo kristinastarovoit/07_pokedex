@@ -29,6 +29,7 @@
     justify-content: center;
     align-items: center;
     gap: 25px;
+    color: var(--font-color-dark-grey);
 }
 
 .pkm_number {
@@ -38,23 +39,36 @@
 .pkm_img {
     height: 150px;
     width: auto;
-
 }
 
 .pkm_name {
     font-size: 2rem;
     line-height: 1;
     text-transform: uppercase;
-    color: rgb(39, 39, 39);
+    color: var(--font-color-dark-grey);
 }
 
 .about_section,
 .stats_section {
     display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
-dialog {
-    background-color: var(--bg-color-gray);
+.about_section th, .about_section td {
+    width: 112px;
+}
+
+.about_section td,
+.about_section th {
+    border-bottom: 1px dotted var(--hover-dark-grey);
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 #stats_value_section {
@@ -66,6 +80,7 @@ dialog {
 progress {
     height: 8px;
     border-radius: 10px;
+    vertical-align: middle;
 }
 
 progress::-webkit-progress-bar {
@@ -74,4 +89,105 @@ progress::-webkit-progress-bar {
 
 progress::-webkit-progress-value {
     background-color: var(--progress-color-value);
+}
+
+dialog {
+    background-color: var(--bg-color-gray);
+    margin: auto;
+    height: 560px;
+    padding: 16px 12px;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: var(--hover-dark-grey)
+}
+
+dialog.opened::backdrop {
+    background-color: var(--hover-dark-grey);
+    opacity: 0.7;
+    transition: all 550ms ease-in;
+}
+
+dialog::backdrop {
+    background-color: var(--hover-dark-grey);
+    opacity: 0;
+    transition: all 550ms ease-in;
+}
+
+#dialog_arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dialog_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    height: 100%;
+}
+
+.dialog_arrow {
+    height: 36px;
+    border-radius: 50%;
+    transition: all 255ms ease-in-out;
+}
+
+.close_button {
+    transition: all 255ms ease-in-out;
+    align-self: flex-end;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+.close_button>img {
+    height: 30px;
+    width: 30px;
+}
+
+.dialog_arrow:hover,
+.close_button:hover {
+    background-color: var(--hover-dark-grey);
+
+}
+
+.dialog_arrow_right {
+    transform: rotate(180deg);
+}
+
+#info_section {
+    min-height: 134px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    text-align: left;
+    font-weight: normal;
+}
+
+.th_abilities {
+    vertical-align: top;
+}
+
+#dialog_info_button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#dialog_info_button>button {
+    font-size: 1.2rem;
+    background-color: var(--hover-dark-grey);
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: all 255ms ease-in-out;
+    margin-bottom: 10px;
+}
+
+#dialog_info_button>button:hover {
+    background-color: transparent;
 }

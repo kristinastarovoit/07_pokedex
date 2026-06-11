@@ -73,6 +73,7 @@ function renderPokemonCardInDialog(i) {
     const dialogCardRef = document.getElementById('standard_card');
     dialogCardRef.innerHTML = '';
     dialogCardRef.innerHTML += getPokemonCardsTemplate(i);
+    renderPokemonType(i);
 }
 
 function removeInfoButtonInDialog(i) {
@@ -111,14 +112,14 @@ function renderAbilitySection(i) {
     const aboutValueRef = document.getElementById('abilities');
     aboutValueRef.innerHTML = '';
     for (let indexAbout = 0; indexAbout < allPokemon[i].abilities.length; indexAbout++) {
-        aboutValueRef.innerHTML += `<p>${allPokemon[i].abilities[indexAbout].ability.name}</p>`
+        aboutValueRef.innerHTML += `<li>${allPokemon[i].abilities[indexAbout].ability.name}</li>`
     }
 }
 
 function renderStatsSection(i) {
-    const aboutSectionRef = document.getElementById('info_section');
-    aboutSectionRef.innerHTML = '';
-    aboutSectionRef.innerHTML += getStatsSectionTemplate();
+    const infoSectionRef = document.getElementById('info_section');
+    infoSectionRef.innerHTML = '';
+    infoSectionRef.innerHTML += getStatsSectionTemplate();
     renderPokemonStats(i);
 }
 
@@ -146,20 +147,26 @@ function getDialogButtonsTemplate(i) {
 
 function getAboutSectionTemplate(i) {
     return `                
-            <div class="about_section">
-                <div id="about_key_section">
-                    <p class="about_key">weight</p>
-                    <p class="about_key">height</p>
-                    <p class="about_key">base xp</p>
-                    <p class="about_key">abilities</p>
-                </div>
-                <div id="about_value_section">
-                    <p class="about_value">${allPokemon[i].weight} hg</p>
-                    <p class="about_value">${allPokemon[i].height} dm</p>
-                    <p class="about_value">${allPokemon[i].base_experience}</p>
-                    <div class="about_value" id="abilities"></div>
-                </div>
-            </div>`
+            <table class="about_section">
+                <tbody>
+                    <tr>
+                        <th>weight</th>
+                        <td>${allPokemon[i].weight} hg</td>
+                    </tr>
+                    <tr>
+                        <th>height</th>
+                        <td>${allPokemon[i].height} dm</td>
+                    </tr>
+                    <tr>
+                        <th>base xp</th>
+                        <td>${allPokemon[i].base_experience}</td>
+                    </tr>
+                    <tr>
+                        <th class="th_abilities">abilities</th>
+                        <td id="abilities"></td>
+                    </tr>
+                </tbody>
+            </table>`
 }
 
 function getStatsSectionTemplate() {
@@ -183,8 +190,8 @@ function renderDialogArrows(i) {
     const arrowRef = document.getElementById('dialog_arrows');
     arrowRef.innerHTML = '';
     arrowRef.innerHTML = /*html*/ `                    
-            <button onclick="showPrevPokemon(${i})" class="dialog_arrow"><img class="dialog_arrow_left" src="assets/img/arrow.svg" alt="Pfeil links"></button>
-            <button onclick="showNextPokemon(${i})" class="dialog_arrow"><img class="dialog_arrow_right" src="assets/img/arrow.svg" alt="Pfeil rechts"></button>`
+            <button onclick="showPrevPokemon(${i})"><img class="dialog_arrow_left dialog_arrow" src="assets/img/arrow.svg" alt="Pfeil links"></button>
+            <button onclick="showNextPokemon(${i})"><img class="dialog_arrow_right dialog_arrow" src="assets/img/arrow.svg" alt="Pfeil rechts"></button>`
 }
 
 function showNextPokemon(i) {
