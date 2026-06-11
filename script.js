@@ -5,13 +5,6 @@ function init() {
 const allPokemon = [];
 const pokemonRef = document.getElementById('pokedex_content');
 
-// async function fetchAllPokemon() {
-//     const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0');
-//     const data = await response.json()
-//     allData.push(data);
-//     console.log(allData[0].results[0].name);
-// }
-
 async function fetchThisPokemonData(startvaluePkmId, endvaluePkmId, startvaluePkmIndex) {
     try {
         showLoadingScreen();
@@ -130,14 +123,19 @@ function renderStatsSection(i) {
 }
 
 function renderPokemonStats(i) {
-    const statsKeyRef = document.getElementById('stats_key_section');
-    const statsValueRef = document.getElementById('stats_value_section');
-    statsKeyRef.innerHTML = '';
-    statsValueRef.innerHTML = '';
+    const statsRef = document.getElementById('stats_table_body');
+    statsRef.innerHTML = '';
     for (let indexStat = 0; indexStat < allPokemon[i].stats.length; indexStat++) {
-        statsKeyRef.innerHTML += `<p>${allPokemon[i].stats[indexStat].stat.name}</p>`
-        statsValueRef.innerHTML += `<p>${allPokemon[i].stats[indexStat].base_stat}</p>`
+        statsRef.innerHTML += getPokemonStatsTemplate(i, indexStat);
     }
+}
+
+function getPokemonStatsTemplate(i, indexStat) {
+    return `
+            <tr>
+                <th>${allPokemon[i].stats[indexStat].stat.name}</th>
+                <td><progress value="${allPokemon[i].stats[indexStat].base_stat}" max="255"></progress></td>
+            </tr>`
 }
 
 function getDialogButtonsTemplate(i) {
@@ -166,10 +164,9 @@ function getAboutSectionTemplate(i) {
 
 function getStatsSectionTemplate() {
     return `   
-            <div class="stats_section">
-                <div id="stats_key_section"></div>
-                <div id="stats_value_section"></div>
-            </div>`
+            <table class="stats_section">
+                <tbody id="stats_table_body"></tbody>
+            </table>`
 }
 
 async function fetchMorePokemon() {

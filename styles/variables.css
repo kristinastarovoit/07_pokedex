@@ -1,4 +1,6 @@
 :root {
     --bg-color-pokemon-red: #a00202;
     --bg-color-gray: rgb(219, 219, 219);
+    --progress-color-gray: rgb(156, 156, 156);
+    --progress-color-value: #076b79;
 }

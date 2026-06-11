@@ -57,3 +57,21 @@ dialog {
     background-color: var(--bg-color-gray);
 }
 
+#stats_value_section {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+progress {
+    height: 8px;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--progress-color-gray);
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--progress-color-value);
+}
