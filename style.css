@@ -4,14 +4,8 @@
     font-family: 'Tiny5';
 }
 
-/* body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
-.d_none {
-    display: none;
+body {
+    height: 100dvh;
 }
 
 nav {
@@ -42,4 +36,32 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+main {
+    background-color: brown;
+}
+
+.loading_screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.loading_spinner {
+    width: 300px;
+    transform: rotate(0);
+    animation: loadspin 4s infinite linear;
+}
+
+@keyframes loadspin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.d_none {
+    display: none;
 }

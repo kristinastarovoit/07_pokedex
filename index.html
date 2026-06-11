@@ -30,13 +30,14 @@
                 <div id="standard_card"></div>
                 <div id="dialog_info_button"></div>
                 <div id="info_section"></div>
-                <div id="dialog_arrows">
-                    <!-- <button class="dialog_arrow"><img class="dialog_arrow_left" src="assets/img/arrow.svg" alt="Pfeil links"></button>
-                    <button class="dialog_arrow"><img class="dialog_arrow_right" src="assets/img/arrow.svg" alt="Pfeil rechts"></button> -->
-                </div>
+                <div id="dialog_arrows"></div>
             </div>
         </dialog>
         <section id="pokedex_content" class="pokedex_content"></section>
+        <section id="loading_screen" class="loading_screen d_none">
+            <img class="loading_spinner" src="assets/img/loading_spinner.png" alt="Ladebildschirm Pokeball">
+            <p>Pokedex is loading...</p>
+        </section>
         <button onclick="fetchMorePokemon()" id="show_more_button">Load more pokemon</button>
 
     </main>

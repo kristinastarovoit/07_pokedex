@@ -12,12 +12,34 @@ const allPokemon = [];
 // }
 
 async function fetchThisPokemonData(startvaluePkmId, endvaluePkmId, startvaluePkmIndex) {
-    for (let i = startvaluePkmId; i <= endvaluePkmId; i++) {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
-        const data = await response.json();
-        allPokemon.push(data);
+    try {
+        showLoadingScreen();
+        for (let i = startvaluePkmId; i <= endvaluePkmId; i++) {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+            const data = await response.json();
+            allPokemon.push(data);
+        }
+        removeLoadingScreen();
+        renderPokemonCards(startvaluePkmIndex);
     }
-    renderPokemonCards(startvaluePkmIndex);
+    catch (error) {
+        console.error('Loading error:', error);
+        removeLoadingScreen();
+    }
+}
+
+function showLoadingScreen() {
+    const loadingScreen = document.getElementById('loading_screen');
+    const pokemonRef = document.getElementById('pokedex_content');
+    loadingScreen.classList.remove('d_none');
+    pokemonRef.style.display = 'none';
+}
+
+function removeLoadingScreen() {
+    const loadingScreen = document.getElementById('loading_screen');
+    const pokemonRef = document.getElementById('pokedex_content');
+    loadingScreen.classList.add('d_none');
+    pokemonRef.style.display = 'flex';
 }
 
 function renderPokemonCards(startvaluePkmIndex) {
