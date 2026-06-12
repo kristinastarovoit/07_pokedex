@@ -6,6 +6,8 @@ const allPokemon = [];
 const pokemonRef = document.getElementById('pokedex_content');
 const searchButton = document.getElementById('search_button');
 const showMoreButton = document.getElementById('show_more_button');
+let morePokemonLoaded = false;
+
 
 async function fetchThisPokemonData(startvaluePkmId, endvaluePkmId, startvaluePkmIndex) {
     try {
@@ -29,7 +31,7 @@ function showLoadingScreen() {
     loadingScreen.classList.remove('d_none');
     pokemonRef.style.display = 'none';
     searchButton.disabled = true;
-    showMoreButton.disabled = true;
+    removeShowMoreButton();
 }
 
 function removeLoadingScreen() {
@@ -37,13 +39,15 @@ function removeLoadingScreen() {
     loadingScreen.classList.add('d_none');
     pokemonRef.style.display = 'flex';
     searchButton.disabled = false;
-    showMoreButton.disabled = false;
 }
 
 function renderPokemonCards(startvaluePkmIndex) {
     for (let i = startvaluePkmIndex; i < allPokemon.length; i++) {
         pokemonRef.innerHTML += getPokemonCardsTemplate(i);
         renderPokemonType(i);
+    }
+    if (!morePokemonLoaded) {
+        showShowMoreButton();
     }
 }
 
@@ -183,13 +187,17 @@ function getStatsSectionTemplate() {
 }
 
 async function fetchMorePokemon() {
+    morePokemonLoaded = true;
     fetchThisPokemonData(41, 80, 40);
     removeShowMoreButton();
 }
 
 function removeShowMoreButton() {
-    showMoreButton = document.getElementById('show_more_button');
     showMoreButton.classList.add('d_none');
+}
+
+function showShowMoreButton() {
+    showMoreButton.classList.remove('d_none');
 }
 
 function renderDialogArrows(i) {
@@ -218,13 +226,17 @@ function showPrevPokemon(i) {
 
 function searchForPokemon() {
     const searchInput = document.getElementById('pokemon_search').value.toLowerCase();
-    const errorRef = document.getElementById('search_error');
+    const searchErrorRef = document.getElementById('search_error');
+    const pokemonSearchName = allPokemon.filter(pokemon => pokemon.name.includes(searchInput));
     if (searchInput.length < 3) {
-        errorRef.classList.remove('d_none');
+        searchErrorRef.classList.remove('d_none');
+    }
+    else if (pokemonSearchName.length == 0) {
+        console.log('nothing found');
+        pokemonRef.innerHTML = '';
     }
     else {
-        errorRef.classList.add('d_none');
-        const pokemonSearchName = allPokemon.filter(pokemon => pokemon.name.includes(searchInput));
+        searchErrorRef.classList.add('d_none');
         renderSearchSection(pokemonSearchName);
     }
 }
@@ -244,7 +256,7 @@ function renderSearchedPokemonCard(pokemonSearchName) {
 
 function renderSearchSection(pokemonSearchName) {
     renderSearchedPokemonCard(pokemonSearchName);
-    removeShowMoreButton();
     clearSearchInput();
+    removeShowMoreButton();
 }
 
