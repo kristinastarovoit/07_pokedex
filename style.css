@@ -22,7 +22,7 @@ nav {
     background-size: 50%;
 }
 
-nav>img {
+nav>a>img {
     height: 80px;
 }
 
