@@ -4,6 +4,8 @@ function init() {
 
 const allPokemon = [];
 const pokemonRef = document.getElementById('pokedex_content');
+const searchButton = document.getElementById('search_button');
+const showMoreButton = document.getElementById('show_more_button');
 
 async function fetchThisPokemonData(startvaluePkmId, endvaluePkmId, startvaluePkmIndex) {
     try {
@@ -26,12 +28,16 @@ function showLoadingScreen() {
     const loadingScreen = document.getElementById('loading_screen');
     loadingScreen.classList.remove('d_none');
     pokemonRef.style.display = 'none';
+    searchButton.disabled = true;
+    showMoreButton.disabled = true;
 }
 
 function removeLoadingScreen() {
     const loadingScreen = document.getElementById('loading_screen');
     loadingScreen.classList.add('d_none');
     pokemonRef.style.display = 'flex';
+    searchButton.disabled = false;
+    showMoreButton.disabled = false;
 }
 
 function renderPokemonCards(startvaluePkmIndex) {
