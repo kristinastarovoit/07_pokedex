@@ -233,14 +233,18 @@ function searchForPokemon() {
         searchErrorRef.classList.remove('d_none');
     }
     else if (pokemonSearchName.length == 0) {
-        console.log('nothing found');
-        pokemonRef.innerHTML = '';
-        pokemonRef.innerHTML = '<p>Nothing found..</p>'
+        renderNothingFoundText();
+        removeShowMoreButton();
     }
     else {
         searchErrorRef.classList.add('d_none');
         renderSearchSection(pokemonSearchName);
     }
+}
+
+function renderNothingFoundText() {
+    pokemonRef.innerHTML = '';
+    pokemonRef.innerHTML = '<p class="nothing_found_text">Nothing found..</p>';
 }
 
 function clearSearchInput() {

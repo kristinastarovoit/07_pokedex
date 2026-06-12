@@ -95,7 +95,7 @@ main {
     gap: 16px;
 }
 
-#search_error, .loading_text {
+#search_error, .loading_text,.nothing_found_text {
     font-size: 1.5rem;
     color: var(--bg-color-gray);
 }
