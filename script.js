@@ -6,6 +6,7 @@ const allPokemon = [];
 const pokemonRef = document.getElementById('pokedex_content');
 const searchButton = document.getElementById('search_button');
 const showMoreButton = document.getElementById('show_more_button');
+const searchErrorRef = document.getElementById('search_error');
 let morePokemonLoaded = false;
 
 
@@ -32,6 +33,7 @@ function showLoadingScreen() {
     pokemonRef.style.display = 'none';
     searchButton.disabled = true;
     removeShowMoreButton();
+
 }
 
 function removeLoadingScreen() {
@@ -46,7 +48,7 @@ function renderPokemonCards(startvaluePkmIndex) {
         pokemonRef.innerHTML += getPokemonCardsTemplate(i);
         renderPokemonType(i);
     }
-    if (!morePokemonLoaded) {
+    if (!morePokemonLoaded && startvaluePkmIndex === 0) {
         showShowMoreButton();
     }
 }
@@ -226,7 +228,6 @@ function showPrevPokemon(i) {
 
 function searchForPokemon() {
     const searchInput = document.getElementById('pokemon_search').value.toLowerCase();
-    const searchErrorRef = document.getElementById('search_error');
     const pokemonSearchName = allPokemon.filter(pokemon => pokemon.name.includes(searchInput));
     if (searchInput.length < 3) {
         searchErrorRef.classList.remove('d_none');
@@ -234,6 +235,7 @@ function searchForPokemon() {
     else if (pokemonSearchName.length == 0) {
         console.log('nothing found');
         pokemonRef.innerHTML = '';
+        pokemonRef.innerHTML = '<p>Nothing found..</p>'
     }
     else {
         searchErrorRef.classList.add('d_none');
