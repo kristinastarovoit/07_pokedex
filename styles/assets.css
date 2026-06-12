@@ -22,6 +22,15 @@
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: contain;
+    transition: all 255ms ease-in-out;
+}
+
+.pkm_content_card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0px 1px 1px rgba(3, 7, 18, 0.05),
+        0px 3px 3px rgba(3, 7, 18, 0.10),
+        0px 6px 6px rgba(3, 7, 18, 0.15),
+        0px 10px 10px rgba(3, 7, 18, 0.20);
 }
 
 .pkm_type {
@@ -200,6 +209,10 @@ th {
     border-bottom: 2px dotted transparent;
 }
 
+#show_more_button {
+    margin-bottom: 36px;
+}
+
 .more_info_button:hover,
 #dialog_info_button>button:hover {
     background-color: transparent;
@@ -214,4 +227,58 @@ th {
 .search_button:hover,
 #show_more_button:hover {
     color: var(--bg-color-pokemon-red);
+}
+
+@media screen and (max-width: 992px) {
+    .pokedex_content {
+        padding: 56px 36px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .pokedex_content {
+        gap: 20px;
+        padding: 56px 24px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .pokedex_content {
+        padding: 56px 24px;
+    }
+
+    .pkm_content_card {
+        width: 200px;
+        height: 250px;
+    }
+
+    .pkm_name {
+        font-size: 1.75rem;
+    }
+
+    .dialog_wrapper {
+        width: 250px;
+    }
+
+    dialog {
+        height: 570px;
+    }
+
+    progress {
+        width: 130px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pokedex_content {
+        padding: 40px 16px;
+    }
+
+    .pkm_content_card {
+        width: 280px;
+    }
+
+    .dialog_wrapper {
+        width: 250px;
+    }
 }

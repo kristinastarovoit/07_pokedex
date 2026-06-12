@@ -34,10 +34,11 @@ h1 {
 
 footer {
     background-color: var(--bg-color-gray);
-    padding: 24px 100px;
+    padding: 24px 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 26px;
 }
 
 main {
@@ -48,6 +49,20 @@ main {
     align-items: center;
     background-image: url("assets/img/pokeballs_bg.png");
     flex: 1;
+}
+
+a {
+    text-decoration: none;
+    color: var(--bg-color-pokemon-red);
+    transition: all 255ms ease-in-out;
+    border-bottom: 2px dotted transparent;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--font-color-dark-grey);
+    border-color: var(--bg-color-pokemon-red);
 }
 
 .loading_screen {
@@ -95,11 +110,57 @@ main {
     gap: 16px;
 }
 
-#search_error, .loading_text,.nothing_found_text {
+#search_error,
+.loading_text,
+.nothing_found_text {
     font-size: 1.5rem;
     color: var(--bg-color-gray);
 }
 
 .d_none {
     display: none;
+}
+
+@media screen and (max-width: 640px) {
+    nav {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    nav>a>img {
+        height: 65px;
+    }
+
+    nav {
+        padding: 18px 60px;
+    }
+
+    .search_section_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search_button {
+        width: 94px;
+    }
+
+    .pokemon_search {
+        width: 280px;
+    }
 }
