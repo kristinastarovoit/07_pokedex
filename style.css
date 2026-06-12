@@ -73,7 +73,6 @@ main {
     background-position: 8px center;
     background-size: 16px 16px;
     padding: 12px 12px 12px 40px;
-    margin:  50px 0;
     border: 1px solid transparent;
     border-radius: 5px;
     width: 300px;
@@ -85,6 +84,17 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.search_section_wrapper {
+    margin: 30px 0;
+    display: flex;
+    gap: 16px;
+}
+
+#search_error {
+    font-size: 1.5rem;
+    color: var(--bg-color-gray);
 }
 
 .d_none {

@@ -22,14 +22,18 @@
     </header>
     <main>
         <section class="search_section">
-            <label for="pokemon_search"></label>
-            <input id="pokemon_search" class="pokemon_search" type="text" minlength="3" placeholder="find your pokemon">
-            <button onclick="searchForPokemon()" class="search_button">Search</button>
-            <p id="search_error" class="d_none">at least 3 characters</p>
+            <div class="search_section_wrapper">
+                <label for="pokemon_search"></label>
+                <input id="pokemon_search" class="pokemon_search" type="text" minlength="3"
+                    placeholder="find your pokemon">
+                <button onclick="searchForPokemon()" class="search_button">Search</button>
+            </div>
+            <p id="search_error" class="d_none">Insert at least 3 characters</p>
         </section>
         <dialog onclick="closeDialog()" id="dialog_popup">
             <div onclick="event.stopPropagation()" class="dialog_wrapper">
-                <button onclick="closeDialog()" class="close_button"><img src="assets/img/close_x.png" alt="Schließen Button"></button>
+                <button onclick="closeDialog()" class="close_button"><img src="assets/img/close_x.png"
+                        alt="Schließen Button"></button>
                 <div id="standard_card"></div>
                 <div id="dialog_info_button"></div>
                 <div id="info_section"></div>

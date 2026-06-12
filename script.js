@@ -211,8 +211,7 @@ function showPrevPokemon(i) {
 }
 
 function searchForPokemon() {
-    let searchInput = document.getElementById('pokemon_search').value;
-    searchInput = searchInput.toLowerCase();
+    const searchInput = document.getElementById('pokemon_search').value.toLowerCase();
     const errorRef = document.getElementById('search_error');
     if (searchInput.length < 3) {
         errorRef.classList.remove('d_none');
