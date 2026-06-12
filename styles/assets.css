@@ -49,19 +49,6 @@
     color: var(--font-color-dark-grey);
 }
 
-.more_info_button, .search_button {
-    font-size: 1.2rem;
-    background-color: var(--hover-dark-grey);
-    padding: 0 5px;
-    border-radius: 5px;
-    transition: all 255ms ease-in-out;
-    margin-top: 10px;
-}
-
-.more_info_button:hover {
-    background-color: transparent;
-}
-
 .about_section,
 .stats_section {
     display: flex;
@@ -194,23 +181,31 @@ th {
     gap: 12px;
 }
 
-#dialog_info_button>button {
+.more_info_button,
+#dialog_info_button>button,
+#show_more_button,
+.search_button {
     font-size: 1.2rem;
     background-color: var(--hover-dark-grey);
     padding: 0 5px;
     border-radius: 5px;
     transition: all 255ms ease-in-out;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    border-bottom: 2px dotted transparent;
 }
 
+.more_info_button:hover,
 #dialog_info_button>button:hover {
     background-color: transparent;
+    color: var(--bg-color-pokemon-red);
 }
 
+.search_button,
 #show_more_button {
     font-size: 1.75rem;
-    background-color: var(--hover-dark-grey);
-    padding: 0 5px;
-    transition: all 255ms ease-in-out;
-    margin: 10px;
+}
+
+.search_button:hover,
+#show_more_button:hover {
+    color: var(--bg-color-pokemon-red);
 }
