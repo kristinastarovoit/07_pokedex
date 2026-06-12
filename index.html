@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokédex</title>
     <link rel="icon" type="image/x-icon" href="assets/img/pokeball.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/assets.css">
@@ -17,14 +17,14 @@
     <header>
         <nav>
             <img src="assets/img/pokeball.png" alt="Pokeball">
-            <h1>Pokedex</h1>
+            <h1>Pokédex</h1>
         </nav>
     </header>
     <main>
-        <section>
+        <section class="search_section">
             <label for="pokemon_search"></label>
             <input id="pokemon_search" class="pokemon_search" type="text" minlength="3" placeholder="find your pokemon">
-            <button onclick="searchForPokemon()">Search</button>
+            <button onclick="searchForPokemon()" class="search_button">Search</button>
             <p id="search_error" class="d_none">at least 3 characters</p>
         </section>
         <dialog onclick="closeDialog()" id="dialog_popup">
@@ -39,7 +39,7 @@
         <section id="pokedex_content" class="pokedex_content"></section>
         <section id="loading_screen" class="loading_screen d_none">
             <img class="loading_spinner" src="assets/img/loading_spinner.png" alt="Ladebildschirm Pokeball">
-            <p>Pokedex is loading...</p>
+            <p>Pokédex is loading...</p>
         </section>
         <button onclick="fetchMorePokemon()" id="show_more_button">Load more pokemon</button>
 

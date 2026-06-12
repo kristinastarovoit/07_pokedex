@@ -56,7 +56,7 @@ function getPokemonCardsTemplate(i) {
                 <p class="pkm_number"># ${allPokemon[i].id}</p>
                 <img class="pkm_img" src="${allPokemon[i].sprites.front_default}">
                 <div class="pkm_type" id="pkm_type_${i}"></div>
-                <button id="more_info_button_${i}" onclick="renderDialog(${i})">more info</button>
+                <button id="more_info_button_${i}" class="more_info_button" onclick="renderDialog(${i})">more info</button>
             </div>`
 }
 
